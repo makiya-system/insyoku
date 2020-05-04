@@ -122,4 +122,19 @@ $breadcrumb->add(NAVBAR_TITLE_2);
 
 // This should be last line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_END_CHECKOUT_PAYMENT');
-?>
+
+//引き取り日付追加
+$date = new DateTime();
+$time = new DateTime();
+$takeoutdate_min = date( "Y-m-d" );
+$takeoutdate_max = $date->modify('+7 days')->format("Y-m-d");
+$takeoutdate_val = $takeoutdate_min;
+if(isset($_SESSION['takeout-date']) && $_SESSION['takeout-date'] != ''){
+    $takeoutdate_val = $_SESSION['takeout-date'];
+}
+$takeouttime_min = '';
+$takeouttime_max = '';
+$takeouttime_val = $date->modify('+1 hours')->format("H:i");
+if(isset($_SESSION['takeout-time']) && $_SESSION['takeout-time'] != ''){
+    $takeoutdate_val = $_SESSION['takeout-time'];
+}

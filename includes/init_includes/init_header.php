@@ -58,6 +58,7 @@ if ( (DOWN_FOR_MAINTENANCE == 'true') && (!strstr(EXCLUDE_ADMIN_IP_FOR_MAINTENAN
  * If a customer is logged in, check to see that the customers' address(es) still contain valid countries.
  * If not, redirect to the address-book page for changes.
  */
+/*
 if (!empty($_SESSION['customer_id']) && $_GET['main_page'] != FILENAME_ADDRESS_BOOK_PROCESS && $_GET['main_page'] != FILENAME_LOGOFF) {
   $addresses_query = "SELECT address_book_id, entry_country_id as country_id, entry_firstname as firstname, entry_lastname as lastname
                       FROM   " . TABLE_ADDRESS_BOOK . "
@@ -74,3 +75,4 @@ if (!empty($_SESSION['customer_id']) && $_GET['main_page'] != FILENAME_ADDRESS_B
     }
   }
 }
+*/

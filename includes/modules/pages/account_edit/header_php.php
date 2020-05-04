@@ -44,10 +44,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
     $messageStack->add('account_edit', ENTRY_FIRST_NAME_ERROR);
   }
 
+  /*
   if (strlen($lastname) < ENTRY_LAST_NAME_MIN_LENGTH) {
     $error = true;
     $messageStack->add('account_edit', ENTRY_LAST_NAME_ERROR);
-  }
+  }*/
 
   if (ACCOUNT_DOB == 'true') {
     if (ENTRY_DOB_MIN_LENGTH > 0 or !empty($_POST['dob'])) {

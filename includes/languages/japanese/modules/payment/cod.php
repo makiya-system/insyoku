@@ -20,6 +20,6 @@
 // $Id: cod.php 1969 2005-09-13 06:57:21Z drbyte $
 //
 
-  define('MODULE_PAYMENT_COD_TEXT_TITLE', '代金引換');
-  define('MODULE_PAYMENT_COD_TEXT_DESCRIPTION', '代金引換');
+  define('MODULE_PAYMENT_COD_TEXT_TITLE', '店頭でお支払い');
+  define('MODULE_PAYMENT_COD_TEXT_DESCRIPTION', '店頭でお支払い');
 ?>

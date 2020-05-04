@@ -1,0 +1,10 @@
+ACCOUNT_COMPANY false
+ACCOUNT_NEWSLETTER_STATUS 0
+DISPLAY_PRIVACY_CONDITIONS false
+ACCOUNT_FAX_NUMBER false
+ACCOUNT_STATE false
+
+合計モジュール　配送　アンインストール
+
+決済モジュール　店頭でお支払い　インストール
+配送モジュール　店頭でお受け取りのみ

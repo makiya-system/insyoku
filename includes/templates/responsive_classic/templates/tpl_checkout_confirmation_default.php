@@ -21,12 +21,7 @@
 <?php if ($messageStack->size('checkout') > 0)              echo $messageStack->output('checkout'); ?>
 
 <div id="checkoutBillto" class="back">
-  <h2 id="checkoutConfirmDefaultBillingAddress"><?php echo HEADING_BILLING_ADDRESS; ?></h2>
-<?php if (!$flagDisablePaymentAddressChange) { ?>
-  <div class="buttonRow forward"><?php echo '<a href="' . zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '">' . zen_image_button(BUTTON_IMAGE_EDIT_SMALL, BUTTON_EDIT_SMALL_ALT) . '</a>'; ?></div>
-<?php } ?>
 
-  <address><?php echo zen_address_format($order->billing['format_id'], $order->billing, 1, ' ', '<br />'); ?></address>
 
 <?php
   $class = &$_SESSION['payment'];
@@ -170,6 +165,11 @@
     echo $payment_modules->process_button();
   }
 ?>
+<br>
+<fieldset>
+<legend>お引き取り日時</legend>
+日付:<?php echo str_replace('-', '/', $_SESSION['takeout-date']); ?>　時間:<?php echo $_SESSION['takeout-time']; ?>
+</fieldset>
 <div class="buttonRow forward confirm-order"><?php echo zen_image_submit(BUTTON_IMAGE_CONFIRM_ORDER, BUTTON_CONFIRM_ORDER_ALT, 'name="btn_submit" id="btn_submit"') ;?></div>
 </form>
 <div class="buttonRow back"><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '<br />' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>

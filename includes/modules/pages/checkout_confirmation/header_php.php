@@ -29,6 +29,18 @@ if ($_SESSION['cart']->count_contents() <= 0) {
     }
   }
 
+  //引き取り日時追加
+//
+unset($_SESSION['takeout-date']);
+unset($_SESSION['takeout-time']);
+if($_POST['takeout-date'] != ''){
+    $_SESSION['takeout-date'] = $_POST['takeout-date'];
+}
+if($_POST['takeout-time'] != ''){
+    $_SESSION['takeout-time'] = $_POST['takeout-time'];
+}
+  
+  
 // avoid hack attempts during the checkout procedure by checking the internal cartID
 if (isset($_SESSION['cart']->cartID) && $_SESSION['cartID']) {
   if ($_SESSION['cart']->cartID != $_SESSION['cartID']) {

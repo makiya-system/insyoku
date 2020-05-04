@@ -31,7 +31,7 @@ if (!isset($_SESSION['language']) || isset($_GET['language'])) {
 }
 
 if (defined('FURIKANA_NECESSARY_COUNTRIES') && !is_bool(strpos(strtolower(FURIKANA_NECESSARY_COUNTRIES), strtolower($_SESSION['language'])))) {
-  define('ADD_FURIGANA', 'true');
+  define('ADD_FURIGANA', false);
 } else {
   define('ADD_FURIGANA', false);
 }

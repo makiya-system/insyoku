@@ -32,31 +32,8 @@
     function update_status() {
       global $order, $db;
 
-      if ($this->enabled && (int)MODULE_PAYMENT_COD_ZONE > 0 && isset($order->delivery['country']['id'])) {
-        $check_flag = false;
-        $check = $db->Execute("select zone_id from " . TABLE_ZONES_TO_GEO_ZONES . " where geo_zone_id = '" . MODULE_PAYMENT_COD_ZONE . "' and zone_country_id = '" . (int)$order->delivery['country']['id'] . "' order by zone_id");
-        while (!$check->EOF) {
-          if ($check->fields['zone_id'] < 1) {
-            $check_flag = true;
-            break;
-          } elseif ($check->fields['zone_id'] == $order->delivery['zone_id']) {
-            $check_flag = true;
-            break;
-          }
-          $check->MoveNext();
-        }
-
-        if ($check_flag == false) {
-          $this->enabled = false;
-        }
-      }
-
 // disable the module if the order only contains virtual products
-      if ($this->enabled == true) {
-        if ($order->content_type != 'physical') {
-          $this->enabled = false;
-        }
-      }
+
 
       // other status checks?
       if ($this->enabled) {
@@ -86,10 +63,18 @@
     }
 
     function before_process() {
+        global $order;
+        if( strlen($order->info['comments']) > 0 ){ $newline = "\n\n"; }
+		else{ $newline = ""; }
+		
+		$order->info['comments'] .= $newline .'[お引き取り日時]' ."\n";
+		$order->info['comments'] .= '日付:' .str_replace('-', '/', $_SESSION['takeout-date']) .'　時間:' .$_SESSION['takeout-time'] ."\n";
       return false;
     }
 
     function after_process() {
+        unset($_SESSION['takeout-date']);
+        unset($_SESSION['takeout-time']);
       return false;
     }
 
